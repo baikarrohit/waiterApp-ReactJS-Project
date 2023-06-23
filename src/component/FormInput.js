@@ -30,9 +30,11 @@ const FormInput = (props) => {
       dish: enteredDish,
       table: enteredTable,
     };
-
+  
+    props.onFormSubmit(tableData);
+    
     localStorage.setItem("data", JSON.stringify(tableData));
-
+    
     setEnteredID("");
     setEnteredPrice("");
     setEnteredDish("");
@@ -41,19 +43,30 @@ const FormInput = (props) => {
   return (
     <div>
       <form onSubmit={formSubmitHandler}>
-        <label >Unique Order ID: </label>
-        <input type="number" value={enteredID} onChange={idChnageHandler} />
-        <label >Choose Price: </label>
+        <label>Unique Order ID: </label>
         <input
           type="number"
+          id="id"
+          value={enteredID}
+          onChange={idChnageHandler}
+        />
+        <label>Choose Price: </label>
+        <input
+          type="number"
+          id="price"
           value={enteredPrice}
           onChange={priceChangeHandler}
         />
         <label>Choose Dish: </label>
-        <input type="text" value={enteredDish} onChange={dishChangeHandler} />
-        <label >Choose a Table: </label>
+        <input
+          type="text"
+          id="dish"
+          value={enteredDish}
+          onChange={dishChangeHandler}
+        />
+        <label>Choose a Table: </label>
         <select
-          name="category"
+          id="table"
           value={enteredTable}
           onChange={tableChangeHandler}
         >

@@ -1,19 +1,17 @@
 import React from "react";
-import TableItem from "./TableItem";
 
 
 const TableList = (props) => {
-  console.log(props.items)
   return (
     <ul>
-      {props.items.map((item) => (
-        <TableItem
-          id={item.id}
-          price={item.price}
-          name={item.name}
-          category={item.category}
-        />
-      ))}
+      {props.tables.map((item) => {
+        return (
+
+          <li key={item.id}>
+            {`ID: ${item.id} - Price: ${item.price} - Dish: ${item.dish} - Table: ${item.table}`}
+          </li>
+        );
+      })}
     </ul>
   );
 };
